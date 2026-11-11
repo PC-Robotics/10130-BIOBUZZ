@@ -73,7 +73,7 @@ public class FlightStickTeleOp extends LinearOpMode {
                         robot.pinpoint.getHeadingRadians(), scale);
             } else {
                 robot.drive.driveRobotCentric(forward, strafe, turn, scale);
-            }
+            }//
 
             // ---- intake ----
             if (stick.isPressed(Button.THUMB)) robot.intake.setPower(INTAKE_POWER);
