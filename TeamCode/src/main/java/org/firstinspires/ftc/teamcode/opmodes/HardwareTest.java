@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.subsystems.*;
 
 /**
  * Basic motor direction test. Use only after securing the robot and clearing moving parts.
@@ -34,8 +34,8 @@ public class HardwareTest extends LinearOpMode {
 
         waitForStart();
         while (opModeIsActive()) {
-            if (gamepad1.dpad_up) selected = (selected + 1) % motors.length;
-            if (gamepad1.dpad_down) selected = (selected + motors.length - 1) % motors.length;
+            if (gamepad1.dpadUpWasPressed()) selected = (selected + 1) % motors.length;
+            if (gamepad1.dpadDownWasPressed()) selected = (selected + motors.length - 1) % motors.length;
             double power = -gamepad1.left_stick_y * 0.15;
             for (int i = 0; i < motors.length; i++) {
                 motors[i].setPower(i == selected ? power : 0);

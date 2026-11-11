@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.subsystems.*;
 
 public class DriveSubsystem {
     private final DcMotorEx frontLeft, frontRight, backLeft, backRight;
@@ -14,10 +14,10 @@ public class DriveSubsystem {
         backLeft = map.get(DcMotorEx.class, Constants.Names.BACK_LEFT);
         backRight = map.get(DcMotorEx.class, Constants.Names.BACK_RIGHT);
 
-        frontLeft.setDirection(Constants.Drive.REVERSE_LEFT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
-        backLeft.setDirection(Constants.Drive.REVERSE_LEFT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
-        frontRight.setDirection(Constants.Drive.REVERSE_RIGHT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
-        backRight.setDirection(Constants.Drive.REVERSE_RIGHT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
+        frontLeft.setDirection(Constants.Drive.REVERSE_FRONT_LEFT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
+        frontRight.setDirection(Constants.Drive.REVERSE_FRONT_RIGHT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
+        backLeft.setDirection(Constants.Drive.REVERSE_BACK_LEFT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
+        backRight.setDirection(Constants.Drive.REVERSE_BACK_RIGHT ? DcMotor.Direction.REVERSE : DcMotor.Direction.FORWARD);
 
         setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
